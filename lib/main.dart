@@ -43,8 +43,19 @@ class MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "Chat App",
       theme: ThemeData(primarySwatch: Colors.red),
-      routes: <String, WidgetBuilder>{
-        '/chatscreen': (BuildContext context) => new AllUsersScreen(),
+      // routes: <String, WidgetBuilder>{
+      //   '/chatscreen': (BuildContext context) => new AllUsersScreen(),
+      // },
+      routes: {
+//        SplashScreen.id: (context) => SplashScreen(),
+        AllUsersScreen.id: (context) => AllUsersScreen(),
+        HomePage.id: (context) => HomePage(),
+        // RegistrationScreen.id: (context) => RegistrationScreen(),
+        // MyHomePage.id: (context) => MyHomePage(),
+        // NotificationScreen.id: (context) => NotificationScreen(),
+        // AboutPage.id: (context) => AboutPage(),
+        // //Search User Screen
+        // SeachAppBarRecipe.id: (context) => SeachAppBarRecipe(),
       },
       home: isLoggedIn == true ? AllUsersScreen() : HomePage(),
     );

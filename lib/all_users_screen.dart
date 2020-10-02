@@ -11,6 +11,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 // import 'package:chat_app/models/user_details.dart';
 
 class AllUsersScreen extends StatefulWidget {
+  static const String id = 'all_users_screen';
   _AllUsersScreenState createState() => _AllUsersScreenState();
 }
 
@@ -67,14 +68,14 @@ class _AllUsersScreenState extends State<AllUsersScreen> {
                     return ListTile(
                       leading: CircleAvatar(
                         backgroundImage:
-                            NetworkImage(usersList[index].data()['photoUrl']),
+                            NetworkImage(usersList[index].data['photoUrl']),
                       ),
-                      title: Text(usersList[index].data()['name'],
+                      title: Text(usersList[index].data['name'],
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           )),
-                      subtitle: Text(usersList[index].data()['emailId'],
+                      subtitle: Text(usersList[index].data['emailId'],
                           style: TextStyle(
                             color: Colors.grey,
                           )),
@@ -83,11 +84,10 @@ class _AllUsersScreenState extends State<AllUsersScreen> {
                             context,
                             new MaterialPageRoute(
                                 builder: (context) => ChatScreen(
-                                    name: usersList[index].data()['name'],
-                                    photoUrl:
-                                        usersList[index].data()['photoUrl'],
+                                    name: usersList[index].data['name'],
+                                    photoUrl: usersList[index].data['photoUrl'],
                                     receiverUid:
-                                        usersList[index].data()['uid'])));
+                                        usersList[index].data['uid'])));
                       }),
                     );
                   }),

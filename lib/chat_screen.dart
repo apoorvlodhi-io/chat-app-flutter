@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class ChatScreen extends StatefulWidget {
+  static const String id = 'chat_screen';
   String name;
   String photoUrl;
   String receiverUid;
@@ -39,7 +40,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    
+
     _messageController = TextEditingController();
     getUID().then((user) {
       setState(() {
@@ -304,8 +305,9 @@ class _ChatScreenState extends State<ChatScreen> {
         Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(
-            mainAxisAlignment: snapshot['senderUid'] == _senderuid?
-            MainAxisAlignment.end : MainAxisAlignment.start,
+            mainAxisAlignment: snapshot['senderUid'] == _senderuid
+                ? MainAxisAlignment.end
+                : MainAxisAlignment.start,
             children: <Widget>[
               snapshot['senderUid'] == _senderuid
                   ? CircleAvatar(
@@ -351,7 +353,9 @@ class _ChatScreenState extends State<ChatScreen> {
                             Navigator.push(
                                 context,
                                 new MaterialPageRoute(
-                                    builder: (context) => FullScreenImage(photoUrl: snapshot['photoUrl'],)));
+                                    builder: (context) => FullScreenImage(
+                                          photoUrl: snapshot['photoUrl'],
+                                        )));
                           }),
                           child: Hero(
                             tag: snapshot['photoUrl'],

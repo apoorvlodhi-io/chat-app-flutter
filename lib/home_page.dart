@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 
 class HomePage extends StatefulWidget {
+  static const String id = 'home_page';
   _HomePageState createState() => _HomePageState();
 }
 
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     AuthCredential authCredential = GoogleAuthProvider.getCredential(
         idToken: _signInAuthentication.idToken,
         accessToken: _signInAuthentication.accessToken);
-
+//add ().user
     FirebaseUser user =
         (await _firebaseAuth.signInWithCredential(authCredential)).user;
     return user;
